@@ -1,0 +1,33 @@
+<map type="bit.map">
+    <head>
+        <title>stage.1_1.title</title>
+        <subtitle>stage.1_1.subtitle</subtitle>
+
+        <!-- 地图尺寸 -->
+        <config name="map-size" value="-35,-35,35,35" />
+        <config name="visual-size" value="-30,-30,30,30" />
+        <config name="movable-size" value="-30,-30,30,30" />
+
+        <!-- 物理引擎 -->
+        <config name="physics-engine" value="root" />
+
+        <import src="%SRC%/function/test.function" />
+    </head>
+
+    <body>
+        <!-- 置入玩家 -->
+        <player pos="0,0" type="" />
+
+        <!-- 构造物件 -->
+        <constr name="block" pos="5,5" size="2,2" />
+
+        <!-- 建立触发 -->
+        <trigger rule="near(5)" command="summon(value)" pos="10,15" next="destroy">
+            <!-- 生成单位 -->
+            <unit name="scout_mini" pos="10,15" />
+        </trigger>
+
+        <!-- 建立战场控制 -->
+        <trigger rule="ready()" command="playerControl(true)" pos="0,0" next="destroy" />
+    </body>
+</map>
